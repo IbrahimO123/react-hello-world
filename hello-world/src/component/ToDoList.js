@@ -52,9 +52,13 @@ function ToDoList() {
         setTask('')
         setDetails('')
         setDate('')
-        setStatus('')
-        setPriority('')
         setComment('')
+    }
+    const backGround = () =>{
+        let stat = document.getElementById("stat")
+         if (stat.value === "Open ") {
+             style.background-color = "red"
+         }
     }
 
     return (
@@ -75,12 +79,24 @@ function ToDoList() {
             <input className="task-input" type="date" onChange={(e) => changeDate(e)}  value={date} tabIndex="3"></input>
         </p>
         <p className="task-box">
-            <label className="task-label">Status:</label>
-            <input className="task-input" type="text" value={status} onChange={(e) => changeStatus(e)}  tabIndex="4"></input>
+            <label className="task-label" for="status">Status:</label>
+            <select className="task-input" type="text" name="status" id="status" value={status} onChange={(e) => changeStatus(e)}  tabIndex="4">
+                <option value="Open">Open</option>
+                <option value="Closed">Closed</option>
+                <option value="Delay">Delay</option>
+                <option value="Yet To Start">Yet To Start</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
         </p>
         <p className="task-box">
-            <label className="task-label">Priority:</label>
-            <input className="task-input" value={priority} onChange={(e) => changePriority(e)} type="text" placeholder="Importance level"  tabIndex="5"></input>
+            <label className="task-label" for="priority">Priority:</label>
+            <select className="task-input"  onChange={(e) => changePriority(e)} type="text" placeholder="Importance level" list="priority" name="priority" id="priority" tabIndex="5">
+            <option value="Very Low">Very Low</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+              <option value="Very High">Very High</option>
+            </select>
         </p>
         <p className="task-box">
             <label className="task-label">Comment:</label>
@@ -97,8 +113,8 @@ function ToDoList() {
                                 <th>Task</th>
                                 <th>Details</th>
                                 <th>Date</th>
-                                <th>Status</th>
-                                <th>Priority</th>
+                                <th id="stat" >Status</th>
+                                <th id="prior">Priority</th>
                                 <th>Comment</th>
                               </tr>
                      </thead>                     
