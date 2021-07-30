@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,95 @@
   to {
     transform: rotate(360deg);
   }
+} */
+body {
+  background-color: #a19f97;
+  margin: 10px;
+}
+.form{
+  width: 25%;
+  margin:10% auto;
+}
+.details{
+  border: 4px;
+  border-style: solid;
+  border-color:rgb(94, 94, 86);
+  display: inline-block;
+  padding:  5px;
+}
+.form-input {
+  height: 30px;
+  width:90%;
+  padding-top: 0;
+}
+.form-label{
+  float: left;
+  margin-left: 15px;
+  padding-top: 0;
+}
+.form-button{
+  width:70%;
+  height: 35px;
+  background-color: darkturquoise;
+}
+.box{
+  float: left;
+  margin-left: 10px;
+  margin-top: 0;
+  display: flex;
+}
+.box-text{
+  font-size: smaller;
+  margin-top: -12px;
+  margin-left: 3px;
+}
+.box-check {
+  margin-top: 2px ;
+}
+@media only screen and (max-width:800px){
+  .form{
+    width: 30%;
+  }
+
+}
+
+.todo {
+  width: 30%;;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #f3ca20;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  float: left;
+  border-radius:4px;
+  padding: 5px;
+  padding-left: 10px;
+}
+.task-heading {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.task-box{
+  margin-top: -6px;
+}
+.task-label {
+  display: block;
+}
+.task-input {
+  width: 80%;
+  height: 40px;
+  border-radius: 5px;
+  margin: 0; 
+}
+.task-area {
+  height:100px;
+  scroll-behavior: smooth;
+}
+.task-button {
+  margin: 0 auto;
+  height: 40px;
+  background-color: #000000;
+  color: #f3ca20;
+  border-radius: 5px;
 }
