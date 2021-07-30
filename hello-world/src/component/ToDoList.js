@@ -5,10 +5,10 @@ function ToDoList() {
     const toDo = {
         task: " Send the monthly transactions to Customers",
         details: "Sending the monthly email to all the classic customers of my organization contain details about what they purchased and how much they where charged for it.",
-        Date: "05/06/2021",
+        Date: "2021-07-30",
         status: "closed",
         priority: "Very High",
-        comment: "Copy the exceutives while sending the email"
+        comment: "Copy the executives while sending the email"
     }
     const [actionLog, setAction]= useState([]);
     const [task,setTask] = useState(toDo.task);
@@ -23,7 +23,7 @@ function ToDoList() {
             {
                task: " Send the monthly transactions to Customers",
                details: "Sending the monthly email to all the classic customers of my organization contain details about what they purchased and how much they where charged for it.",
-               Date: "30/07/2021",
+               Date: "2021-07-30",
                status: "Open",
                priority: "High",
                comment: "",
@@ -46,7 +46,7 @@ function ToDoList() {
                 Date:Date,
                 status:status,
                 priority:priority,
-                comment:comment
+                comment:comment,
             }
         ])
         setTask('')
@@ -84,19 +84,40 @@ function ToDoList() {
         </p>
         <p className="task-box">
             <label className="task-label">Comment:</label>
-            <input className="task-input" type="text" placeholder="Add comment" value={comment} onChange={(e) => changeComment(e)}  tabIndex="5"></input>
+            <input className="task-input" type="text" placeholder="Add comment" value={comment} onChange={(e) => changeComment(e)}  tabIndex="6"></input>
         </p>
         <p className="task-button">
             <button type="submit" onClick={addTask} className="task-button">Add Task</button>
         </p>
         </div>
-        <div className="task-table">
-        {
-            actionLog.map((action,serial) => (
-                <h6 key={serial}>{action.task} | {action.details} | {action.Date} | {action.status} | {action.priority}</h6>
+        <div className="table">
+                  <table className="task-table">
+                     <thead>
+                     <tr className="task-heading">
+                                <th>Task</th>
+                                <th>Details</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Priority</th>
+                                <th>Comment</th>
+                              </tr>
+                     </thead>
+                             
+           { actionLog.map((action,serial) => (
+                            <tbody className="task-body" key={serial}>
+                            <tr>
+                                <td>{action.task}</td>
+                                <td>{action.details}</td>
+                                <td>{action.Date} </td>
+                                <td> {action.status} </td>
+                                <td> {action.priority}</td>
+                                <td> {action.comment}</td>
+                              </tr>
+                            </tbody>  
             )
             )
         }
+        </table>
         </div>
         </>
     )

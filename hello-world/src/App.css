@@ -127,3 +127,13 @@ body {
   color: #f3ca20;
   border-radius: 5px;
 }
+
+.table {
+  width: 65%;
+  float: right;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #f3ca20;
+  display: flex;
+  border-collapse: collapse;
+  border-radius:4px;
+}
