@@ -5,12 +5,12 @@ function ToDoList() {
     const toDo = {
         task: " Send the monthly transactions to Customers",
         details: "Sending the monthly email to all the classic customers of my organization contain details about what they purchased and how much they where charged for it.",
-        Date: "05-06-2021",
+        Date: "05/06/2021",
         status: "closed",
         priority: "Very High"
     }
     const [actionLog, setAction]= useState([]);
-    const [action,setTask] = useState(toDo.task);
+    const [task,setTask] = useState(toDo.task);
     const [details,setDetails] = useState(toDo.details);
     const [date,setDate] = useState(toDo.Date);
     const [status,setStatus] = useState(toDo.status);
@@ -21,9 +21,9 @@ function ToDoList() {
             {
                task: " Send the monthly transactions to Customers",
                details: "Sending the monthly email to all the classic customers of my organization contain details about what they purchased and how much they where charged for it.",
-               Date: "05-06-2021",
-               status: "closed",
-              priority: "Very High"
+               Date: "30/07/2021",
+               status: "Open",
+              priority: "High"
             }
         ])  
         },[])
@@ -37,13 +37,18 @@ function ToDoList() {
         setAction([
             ...actionLog,
             {
-                task:action,
+                task:task,
                 details:details,
                 Date:Date,
                 status:status,
                 priority:priority
             }
         ])
+        setTask('')
+        setDetails('')
+        setDate('')
+        setStatus('')
+        setPriority('')
     }
 
     return (
@@ -52,7 +57,7 @@ function ToDoList() {
         <p className="task-heading" >Task To Do</p>
         <p  className="task-box">
             <label className="task-label">Tasks:</label>
-            <input className="task-input" type="text" placeholder="Task to do" value={action} onChange={(e) => changeTask(e)} tabIndex="1"></input>
+            <input className="task-input" type="text" placeholder="Task to do" value={task} onChange={(e) => changeTask(e)} tabIndex="1"></input>
         </p>
         <p className="task-box">
          <span className="task-label">Details:</span>
