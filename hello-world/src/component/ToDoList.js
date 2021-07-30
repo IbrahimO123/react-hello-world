@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { cloneElement, useEffect, useState } from 'react'
 
 function ToDoList() {
     const toDo = {
@@ -57,8 +57,9 @@ function ToDoList() {
     const backGround = () =>{
         let stat = document.getElementById("stat")
          if (stat.value === "Open ") {
-             style.background-color = "red"
+             stat.style.backgroundColor = "red"
          }
+         backGround()
     }
 
     return (
