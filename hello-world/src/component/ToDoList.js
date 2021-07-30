@@ -5,7 +5,7 @@ function ToDoList() {
     const toDo = {
         task: " Send the monthly transactions to Customers",
         details: "Sending the monthly email to all the classic customers of my organization contain details about what they purchased and how much they where charged for it.",
-        Date: "2021-07-30",
+        date: "2021-07-30",
         status: "closed",
         priority: "Very High",
         comment: "Copy the executives while sending the email"
@@ -23,7 +23,7 @@ function ToDoList() {
             {
                task: " Send the monthly transactions to Customers",
                details: "Sending the monthly email to all the classic customers of my organization contain details about what they purchased and how much they where charged for it.",
-               Date: "2021-07-30",
+               date: "2021-07-30",
                status: "Open",
                priority: "High",
                comment: "",
@@ -43,7 +43,7 @@ function ToDoList() {
             {
                 task:task,
                 details:details,
-                Date:Date,
+                date:date,
                 status:status,
                 priority:priority,
                 comment:comment,
@@ -101,17 +101,16 @@ function ToDoList() {
                                 <th>Priority</th>
                                 <th>Comment</th>
                               </tr>
-                     </thead>
-                             
+                     </thead>                     
            { actionLog.map((action,serial) => (
                             <tbody className="task-body" key={serial}>
                             <tr>
                                 <td>{action.task}</td>
                                 <td>{action.details}</td>
-                                <td>{action.Date} </td>
-                                <td> {action.status} </td>
-                                <td> {action.priority}</td>
-                                <td> {action.comment}</td>
+                                <td>{action.date} </td>
+                                <td>{action.status} </td>
+                                <td>{action.priority}</td>
+                                <td>{action.comment}</td>
                               </tr>
                             </tbody>  
             )
