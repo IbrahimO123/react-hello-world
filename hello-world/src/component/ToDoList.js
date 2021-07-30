@@ -7,7 +7,8 @@ function ToDoList() {
         details: "Sending the monthly email to all the classic customers of my organization contain details about what they purchased and how much they where charged for it.",
         Date: "05/06/2021",
         status: "closed",
-        priority: "Very High"
+        priority: "Very High",
+        comment: "Copy the exceutives while sending the email"
     }
     const [actionLog, setAction]= useState([]);
     const [task,setTask] = useState(toDo.task);
@@ -15,6 +16,7 @@ function ToDoList() {
     const [date,setDate] = useState(toDo.Date);
     const [status,setStatus] = useState(toDo.status);
     const [priority,setPriority]= useState(toDo.priority);
+    const [comment,setComment]= useState(toDo.comment);
     useEffect(() => {
         setAction([
             ...actionLog,
@@ -23,7 +25,8 @@ function ToDoList() {
                details: "Sending the monthly email to all the classic customers of my organization contain details about what they purchased and how much they where charged for it.",
                Date: "30/07/2021",
                status: "Open",
-              priority: "High"
+               priority: "High",
+               comment: "",
             }
         ])  
         },[])
@@ -33,6 +36,7 @@ function ToDoList() {
     const changeDate = (e) => {setDate(e.target.value)}
     const changeStatus = (e) => {setStatus(e.target.value)}
     const changePriority = (e) => {setPriority(e.target.value)}
+    const changeComment = (e) => {setComment(e.target.value)}
     const addTask = () => {
         setAction([
             ...actionLog,
@@ -41,7 +45,8 @@ function ToDoList() {
                 details:details,
                 Date:Date,
                 status:status,
-                priority:priority
+                priority:priority,
+                comment:comment
             }
         ])
         setTask('')
@@ -49,6 +54,7 @@ function ToDoList() {
         setDate('')
         setStatus('')
         setPriority('')
+        setComment('')
     }
 
     return (
@@ -78,10 +84,10 @@ function ToDoList() {
         </p>
         <p className="task-box">
             <label className="task-label">Comment:</label>
-            <input className="task-input" type="text" placeholder="Add comment"  tabIndex="5"></input>
+            <input className="task-input" type="text" placeholder="Add comment" value={comment} onChange={(e) => changeComment(e)}  tabIndex="5"></input>
         </p>
         <p className="task-button">
-            <button type="submit" onclick={addTask} className="task-button">Add Task</button>
+            <button type="submit" onClick={addTask} className="task-button">Add Task</button>
         </p>
         </div>
         <div className="task-table">
