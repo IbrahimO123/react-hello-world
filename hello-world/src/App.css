@@ -82,7 +82,13 @@ body {
 }
 @media only screen and (max-width:800px){
   .form{
-    width: 30%;
+    width: 100%;
+    clear: both;
+  }
+  .box{
+    float: none;
+    width: 100%;
+    
   }
 
 }
@@ -136,4 +142,25 @@ body {
   display: flex;
   border-collapse: collapse;
   border-radius:4px;
+}
+
+.del {
+  color: blue;
+  width: 40px;
+  height: 30px;
+}
+
+@media only screen and (max-width:800px){
+ .table {
+   float: none;
+   width: 150%;
+   margin-top: 10px;
+   padding :10px;
+ }
+.todo{
+  display: block;
+  width: 150%;
+  margin: 10px;
+    padding:10px;
+}
 }
