@@ -1,16 +1,18 @@
+import React,{useState} from 'react';
 import ToDoList from './component/ToDoList';
 
 function App() {
-  // const human = {
-  //       name: 'Ibrahim',
-  //       surname: 'Oliyide',
-  //       job: 'Process Technician',
-  //       location: 'Sagamu',
-  //       origin : 'Ogun State'
-  //   }
+
+ //actionLog = localStorage.setItem('TodoList',JSON.stringify(actionLog))?localStorage.setItem('TodoList',JSON.stringify(actionLog)):[];
+  
+  const saveData = JSON.parse(localStorage.getItem('TodoList')) || [];
+  const [actionLog, setAction]= useState(saveData);
+  localStorage.setItem('TodoList',JSON.stringify(actionLog))
+
+  
   return (
     <div className="App">
-           <ToDoList serial={''} />
+           <ToDoList  actionLog={actionLog} setAction={setAction} />
     </div>
   );
 }
