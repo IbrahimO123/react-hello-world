@@ -1,4 +1,3 @@
-import './App.css';
 import ToDoList from './component/ToDoList';
 
 function App() {
@@ -11,7 +10,7 @@ function App() {
   //   }
   return (
     <div className="App">
-           <ToDoList/>
+           <ToDoList serial={''} />
     </div>
   );
 }

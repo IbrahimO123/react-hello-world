@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {MdDelete} from 'react-icons/md';
 
 function ToDoList() {
@@ -11,9 +11,9 @@ function ToDoList() {
         comment: "Copy the executives while sending the email"
     }
     const [actionLog, setAction]= useState([]);
-    const [tasking,setTask] = useState(toDo.task);
+    const [task,setTask] = useState(toDo.task);
     const [details,setDetails] = useState(toDo.details);
-    const [date,setDate] = useState(toDo.Date);
+    const [date,setDate] = useState(toDo.date);
     const [status,setStatus] = useState(toDo.status);
     const [priority,setPriority]= useState(toDo.priority);
     const [comment,setComment]= useState(toDo.comment);
@@ -21,7 +21,7 @@ function ToDoList() {
         setAction([
             ...actionLog,
             {
-               task: " Send the monthly transactions to Customers",
+               task: "Send the monthly transactions to Customers",
                details: "Sending the monthly email to all the classic customers of my organization contain details about what they purchased and how much they where charged for it.",
                date: "2021-07-30",
                status: "Open",
@@ -38,11 +38,11 @@ function ToDoList() {
     const changePriority = (e) => {setPriority(e.target.value)}
     const changeComment = (e) => {setComment(e.target.value)}
     const addTask = () => {
-        if (tasking && details && date) {
+        if (task && details && date) {
         setAction([
             ...actionLog,
             {
-                task:tasking,
+                task:task,
                 details:details,
                 date:date,
                 status:status,
@@ -59,30 +59,7 @@ function ToDoList() {
         else {
             alert('Fill in the task or details input, also set the date')
         }
-    }
-    const aray = [23,45,67,78,96,77]
-    const filer = aray.filter((a,b) => b !== 4)
-    console.log(filer)
-    
-    const changeStatusColor = useRef("")
-
-    const backGround = () =>{
         
-         if (changeStatusColor.current.value === "Over Due") {
-             changeStatusColor.current.style.backgroundColor = "red"
-         }
-         else if (changeStatusColor.current.value === "Open"){
-            changeStatusColor.current.style.backgroundColor = "white"
-         }
-         else if (changeStatusColor.current.value === "Closed") {
-            changeStatusColor.current.style.backgroundColor = "green"
-         }
-         else if (changeStatusColor.current.value === "Delay") {
-            changeStatusColor.current.style.backgroundColor = "yellow"
-         }
-         else if (changeStatusColor.current.value === "Cancelled") {
-            changeStatusColor.current.style.backgroundColor = "blue"
-         }         
     }
     return (
         <>
@@ -90,11 +67,11 @@ function ToDoList() {
         <p className="task-heading" >Task To Do</p>
         <p  className="task-box">
             <label className="task-label">Tasks:</label>
-            <input className="task-input" type="text" required placeholder="Task to do" value={tasking} onChange={(e) => changeTask(e)} tabIndex="1"></input>
+            <input className="task-input" type="text" required placeholder="Task to do" value={task} onChange={(e) => changeTask(e)} tabIndex="1"></input>
         </p>
         <p className="task-box">
          <span className="task-label">Details:</span>
-         <textarea className="task-input task-area" required value={details} onChange={(e) => changeDetails(e)} placeholder="Details about the task" >
+         <textarea className="task-input task-area" type="text" required value={details} onChange={(e) => changeDetails(e)} placeholder="Details about the task" >
          </textarea>  
         </p>
         <p className="task-box">
@@ -103,7 +80,7 @@ function ToDoList() {
         </p>
         <p className="task-box">
             <label className="task-label" htmlFor="status">Status:</label>
-            <select className="task-input" ref={changeStatusColor}  type="text" onLoad={backGround()}  name="status" id="status" value={status} onChange={(e) => changeStatus(e)} required  tabIndex="4">
+            <select className="task-input" type="text"  name="status" id="status" value={status} onChange={(e) => changeStatus(e)} required  tabIndex="4">
                 <option value="Open">Open</option>
                 <option value="Closed">Closed</option>
                 <option value="Delay">Delay</option>
@@ -147,7 +124,12 @@ function ToDoList() {
                (
                             <tbody className="task-body" id="task-body" key={serial}>
                             <tr>
-                                <td><button className="del" ><MdDelete/></button>{action.task}</td>
+                                <td><button className="del" onClick={() => setAction( 
+                                    actionLog =>
+                                    actionLog.filter(
+                                        (item, key) => key !== serial
+                                    )
+                                )} id="delete" ><MdDelete/></button>{action.task}</td>
                                 <td>{action.details}</td>
                                 <td>{action.date} </td>
                                 <td>{action.status} </td>
