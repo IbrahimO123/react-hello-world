@@ -62,7 +62,7 @@ table, th, tr{
  .table {
    display: block;
    float: none;
-   width:115vw;
+   width:100vw;
    margin-top: 10px;
    padding :10px;
  }
