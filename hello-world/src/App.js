@@ -8,11 +8,17 @@ function App() {
   const saveData = JSON.parse(localStorage.getItem('TodoList')) || [];
   const [actionLog, setAction]= useState(saveData);
   localStorage.setItem('TodoList',JSON.stringify(actionLog))
+  
 
+  const removeAll = () => {
+    localStorage.removeItem('TodoList');
+    setAction([])
+  }
   
   return (
     <div className="App">
-           <ToDoList  actionLog={actionLog} setAction={setAction} />
+           <ToDoList  actionLog={actionLog} removeAll={removeAll} setAction={setAction} />
+           
     </div>
   );
 }

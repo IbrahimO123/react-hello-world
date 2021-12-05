@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {MdDelete} from 'react-icons/md';
 
-function ToDoList({actionLog, setAction}) {
+function ToDoList({actionLog, setAction, removeAll}) {
+
     const [task,setTask] = useState('');
     const [details,setDetails] = useState('');
     const [date,setDate] = useState('');
@@ -53,6 +54,7 @@ function ToDoList({actionLog, setAction}) {
     
     return (
         <>
+        <div className="container" >
         <div className="todo" >
         <p className="task-heading" >Task To Do</p>
         <p  className="task-box">
@@ -119,7 +121,11 @@ function ToDoList({actionLog, setAction}) {
             )
             )
         }
+        <div>
+        <button onClick={removeAll} type="button" className="task-button remove">Remove All Task</button>
+        </div>
         </table>
+        </div>
         </div>
         </>
     )
